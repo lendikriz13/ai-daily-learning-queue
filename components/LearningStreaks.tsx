@@ -47,7 +47,7 @@ export default function LearningStreaks({ consumedItems, bookmarkedItems, isDark
 
   const loadStreakData = () => {
     const savedData = localStorage.getItem('ai-dashboard-streaks');
-    let data: StreakData = savedData ? JSON.parse(savedData) : {
+    const data: StreakData = savedData ? JSON.parse(savedData) : {
       currentStreak: 0,
       longestStreak: 0,
       totalItemsConsumed: 0,

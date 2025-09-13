@@ -279,7 +279,7 @@ export default function ItemDetailModal({
                 <textarea
                   value={notes}
                   onChange={(e) => setNotes(e.target.value)}
-                  placeholder="Add your thoughts, insights, or key takeaways..."
+                  placeholder="Add your notes about this item..."
                   className={`w-full h-32 p-3 rounded-lg border resize-none focus:outline-none focus:ring-2 focus:ring-blue-500 ${
                     isDarkMode 
                       ? 'bg-gray-700 border-gray-600 text-white placeholder-gray-400' 
@@ -295,7 +295,7 @@ export default function ItemDetailModal({
                 }`}>
                   {notes || (
                     <span className={`italic ${isDarkMode ? 'text-gray-500' : 'text-gray-400'}`}>
-                      No notes yet. Click "Add Notes" to capture your thoughts.
+                      No notes yet. Click &quot;Add Notes&quot; to capture your thoughts.
                     </span>
                   )}
                 </div>

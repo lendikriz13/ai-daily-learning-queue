@@ -17,18 +17,18 @@ export async function GET() {
 
     const data = await resp.json();
 
-    const items = data.results.map((page: any) => {
-      const props = page.properties;
+    const items = data.results.map((page: unknown) => {
+      const props = (page as any).properties;
       
       return {
-        id: page.id,
+        id: (page as any).id,
         title: props.Title?.title[0]?.plain_text || "Untitled",
         sourceType: props["Source Type"]?.select?.name || "Unknown",
         summary: props.Summary?.rich_text?.[0]?.plain_text || "",
         whyItMatters: props["Why It Matters"]?.rich_text?.[0]?.plain_text || "",
         score: props.Score?.number ?? null,
         estimatedTime: props["Estimated Time"]?.number ?? null,
-        tags: props.Tags?.multi_select?.map((t: any) => t.name) || [],
+        tags: props.Tags?.multi_select?.map((t: unknown) => (t as any).name) || [],
         consumed: props.Consumed?.checkbox || false,
         dateAdded: props["Date Added"]?.date?.start || null,
         publicationDate: props["Publication Date"]?.date?.start || null,
@@ -37,8 +37,8 @@ export async function GET() {
     });
 
     return NextResponse.json(items);
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 500 });
+  } catch (err: unknown) {
+    return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }
 

@@ -114,7 +114,7 @@ export default function HomePage() {
 
   // Apply filters,  // Filter and sort items
   const filteredAndSortedItems = useMemo(() => {
-    let filtered = items.filter(item => {
+    const filtered = items.filter(item => {
       // Search filter
       if (searchQuery) {
         const query = searchQuery.toLowerCase();
@@ -181,7 +181,7 @@ export default function HomePage() {
     });
 
     return filtered;
-  }, [items, filters, searchQuery]);
+  }, [items, filters, searchQuery, bookmarkedItems]);
 
   const handleFiltersChange = (newFilters: FilterState) => {
     setFilters(newFilters);
@@ -200,10 +200,6 @@ export default function HomePage() {
     setIsItemDetailModalOpen(true);
   };
 
-  const handleCardClick = (item: Item) => {
-    setSelectedItem(item);
-    setIsItemDetailModalOpen(true);
-  };
 
   const handleToggleConsumed = (itemId: string, consumed: boolean) => {
     setItems(prevItems => 

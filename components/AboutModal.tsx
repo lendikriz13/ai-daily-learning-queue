@@ -80,7 +80,7 @@ export default function AboutModal({ isOpen, onClose, isDarkMode }: AboutModalPr
               <h3 className="text-lg font-semibold mb-2">The Solution</h3>
               <p className={`leading-relaxed mb-4 ${isDarkMode ? 'text-gray-300' : 'text-gray-600'}`}>
                 An intelligent learning queue that automatically ingests, summarizes, and prioritizes AI content. 
-                The system uses OpenAI to generate summaries and "Why It Matters" explanations, then presents 
+                The system uses OpenAI to generate summaries and &quot;Why It Matters&quot; explanations, then presents 
                 everything in a beautiful, filterable dashboard.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
