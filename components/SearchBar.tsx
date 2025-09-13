@@ -26,7 +26,7 @@ export default function SearchBar({ searchQuery, onSearchChange, isDarkMode }: S
         }`} />
         <input
           type="text"
-          placeholder="Search titles and summaries..."
+          placeholder="Search by title, summary, or &quot;Why It Matters&quot;..."
           value={searchQuery}
           onChange={(e) => onSearchChange(e.target.value)}
           onFocus={() => setIsFocused(true)}

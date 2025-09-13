@@ -142,7 +142,7 @@ export default function ExportShare({ items, bookmarkedItems, isDarkMode }: Expo
     document.body.removeChild(link);
   };
 
-  const generateShareableLink = () => {
+  const generateShareableLink = async () => {
     const filteredItems = getFilteredItems();
     const shareData = {
       type: exportType,

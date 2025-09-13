@@ -361,7 +361,7 @@ export default function LearningStreaks({ consumedItems, bookmarkedItems, isDark
           {streakData.currentStreak === 0 
             ? "🌟 Start your learning journey today! Every expert was once a beginner."
             : streakData.currentStreak < 3
-            ? "🔥 Great start! Keep the momentum going to build a strong learning habit."
+            ? "🔥 You're on fire! Keep the momentum going."
             : streakData.currentStreak < 7
             ? "💪 You're building consistency! A few more days to reach a week streak."
             : "⚡ Amazing dedication! You're developing a powerful learning habit."

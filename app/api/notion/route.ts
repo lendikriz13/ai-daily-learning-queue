@@ -18,17 +18,17 @@ export async function GET() {
     const data = await resp.json();
 
     const items = data.results.map((page: unknown) => {
-      const props = (page as any).properties;
+      const props = (page as Record<string, any>).properties;
       
       return {
-        id: (page as any).id,
+        id: (page as Record<string, any>).id,
         title: props.Title?.title[0]?.plain_text || "Untitled",
         sourceType: props["Source Type"]?.select?.name || "Unknown",
         summary: props.Summary?.rich_text?.[0]?.plain_text || "",
         whyItMatters: props["Why It Matters"]?.rich_text?.[0]?.plain_text || "",
         score: props.Score?.number ?? null,
         estimatedTime: props["Estimated Time"]?.number ?? null,
-        tags: props.Tags?.multi_select?.map((t: unknown) => (t as any).name) || [],
+        tags: props.Tags?.multi_select?.map((t: Record<string, any>) => t.name) || [],
         consumed: props.Consumed?.checkbox || false,
         dateAdded: props["Date Added"]?.date?.start || null,
         publicationDate: props["Publication Date"]?.date?.start || null,
