@@ -15,6 +15,7 @@ interface Item {
   consumed: boolean;
   dateAdded: string | null;
   publicationDate: string | null;
+  link: string | null;
 }
 
 interface RecommendationsEngineProps {
