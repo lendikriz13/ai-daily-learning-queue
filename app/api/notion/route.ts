@@ -11,7 +11,15 @@ export async function GET() {
           "Notion-Version": "2022-06-28",
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ page_size: 10 }),
+        body: JSON.stringify({ 
+          page_size: 100,  // Changed from 10 to 100 (Notion's max)
+          sorts: [
+            {
+              property: "Date Added",
+              direction: "descending"  // Show newest items first
+            }
+          ]
+        }),
       }
     );
 
@@ -41,4 +49,3 @@ export async function GET() {
     return NextResponse.json({ error: (err as Error).message }, { status: 500 });
   }
 }
-
